@@ -12,7 +12,7 @@ let WIKI_API : String = "https://en.wikipedia.org/w/api.php?format=json&action=q
 let WIKI_URL : String = "https://en.wikipedia.org/?curid="
 
 protocol WikipediaDelegate {
-    func WikipediaRequestCompleted(result: GoogleVisionResult)
+    func WikipediaRequestCompleted(result: WikipediaResult)
     func WikipediaRequestFailed(error: Error?)
 }
 class WikipediaAPIManager {
@@ -29,9 +29,7 @@ class WikipediaAPIManager {
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             
             guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-                
                 self.delegate?.WikipediaRequestFailed(error: error!)
-                
                 return
             }
             //ensure data is non-nil
@@ -42,10 +40,12 @@ class WikipediaAPIManager {
             let decoder = JSONDecoder()
             let decodedWikipediaResult = try? decoder.decode(WikipediaResult.self, from: data)
             
-            guard decodedWikipediaResult != nil else {
+            guard let wikipediaResult = decodedWikipediaResult else {
                 self.delegate?.WikipediaRequestFailed(error: nil)
                 return
             }
+            
+            self.delegate?.WikipediaRequestCompleted(result: wikipediaResult)
         }
         
         task.resume()

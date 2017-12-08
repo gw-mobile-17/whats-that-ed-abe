@@ -18,7 +18,7 @@ struct WikipediaResult: Codable {
 struct Query: Codable {
     
     let normalized: [Normalized]
-    let pages: [Page]
+    let pages: [String : Page]
     
 }
 

@@ -65,7 +65,15 @@ extension PhotoIdentificationViewController : UITableViewDataSource, UITableView
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-  
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc : UIViewController = (self.storyboard?.instantiateViewController(withIdentifier: "photoDetailVC"))!
+        let photoDetailVC : PhotoDetailsViewController = vc as! PhotoDetailsViewController
+        photoDetailVC.data = data[indexPath.row]
+        photoDetailVC.image = image
+        self.navigationController?.pushViewController(photoDetailVC, animated: true)
+    }
+    
     func GoogleVisionRequestFailed(error: Error?) {
         //TODO : Handle Failed Request Scenario
     }
