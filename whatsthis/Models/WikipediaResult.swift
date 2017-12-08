@@ -7,3 +7,34 @@
 //
 
 import Foundation
+
+struct WikipediaResult: Codable {
+    
+    let batchcomplete: String
+    let query: Query
+    
+}
+
+struct Query: Codable {
+    
+    let normalized: [Normalized]
+    let pages: [Page]
+    
+}
+
+struct Normalized: Codable {
+    
+    let from: String
+    let to: String
+    
+}
+
+struct Page: Codable {
+    
+    let pageid: Int
+    let ns: Int
+    let title: String
+    let extract: String
+    
+}
+

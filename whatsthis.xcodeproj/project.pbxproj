@@ -7,21 +7,43 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00A8F0D01FD5DA4900893E90 /* GoogleVisionAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A8F0CF1FD5DA4900893E90 /* GoogleVisionAPIManager.swift */; };
+		00A8F0D31FD5DC4C00893E90 /* UIImage+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A8F0D21FD5DC4C00893E90 /* UIImage+Utils.swift */; };
+		00A8F0D61FD5E64F00893E90 /* GoogleVisionResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A8F0D51FD5E64F00893E90 /* GoogleVisionResult.swift */; };
+		00A8F0D81FD5E66200893E90 /* WikipediaResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A8F0D71FD5E66200893E90 /* WikipediaResult.swift */; };
+		00A8F0DA1FD5E6A100893E90 /* WikipediaAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A8F0D91FD5E6A100893E90 /* WikipediaAPIManager.swift */; };
+		00A8F0DC1FD5E6AF00893E90 /* PersistanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A8F0DB1FD5E6AF00893E90 /* PersistanceManager.swift */; };
 		00E1D7301FB78F85005ABB49 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E1D72F1FB78F85005ABB49 /* AppDelegate.swift */; };
-		00E1D7321FB78F85005ABB49 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E1D7311FB78F85005ABB49 /* ViewController.swift */; };
+		00E1D7321FB78F85005ABB49 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E1D7311FB78F85005ABB49 /* MenuViewController.swift */; };
 		00E1D7351FB78F85005ABB49 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00E1D7331FB78F85005ABB49 /* Main.storyboard */; };
 		00E1D7371FB78F85005ABB49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00E1D7361FB78F85005ABB49 /* Assets.xcassets */; };
 		00E1D73A1FB78F85005ABB49 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00E1D7381FB78F85005ABB49 /* LaunchScreen.storyboard */; };
+		00E1D7421FB7A67B005ABB49 /* PhotoIdentificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E1D7411FB7A67B005ABB49 /* PhotoIdentificationViewController.swift */; };
+		00E1D7441FB7A6C6005ABB49 /* FavoritePhotosTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E1D7431FB7A6C6005ABB49 /* FavoritePhotosTableViewController.swift */; };
+		00E1D7461FB7A712005ABB49 /* PhotoDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E1D7451FB7A712005ABB49 /* PhotoDetailsViewController.swift */; };
+		C06D3F2FBA3D9C87AEC6A985 /* Pods_whatsthis.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99B58F21EE7C86C3DABB9C7D /* Pods_whatsthis.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		00A8F0CF1FD5DA4900893E90 /* GoogleVisionAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleVisionAPIManager.swift; sourceTree = "<group>"; };
+		00A8F0D21FD5DC4C00893E90 /* UIImage+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Utils.swift"; sourceTree = "<group>"; };
+		00A8F0D51FD5E64F00893E90 /* GoogleVisionResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleVisionResult.swift; sourceTree = "<group>"; };
+		00A8F0D71FD5E66200893E90 /* WikipediaResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikipediaResult.swift; sourceTree = "<group>"; };
+		00A8F0D91FD5E6A100893E90 /* WikipediaAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikipediaAPIManager.swift; sourceTree = "<group>"; };
+		00A8F0DB1FD5E6AF00893E90 /* PersistanceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistanceManager.swift; sourceTree = "<group>"; };
 		00E1D72C1FB78F85005ABB49 /* whatsthis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = whatsthis.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E1D72F1FB78F85005ABB49 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		00E1D7311FB78F85005ABB49 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		00E1D7311FB78F85005ABB49 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		00E1D7341FB78F85005ABB49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		00E1D7361FB78F85005ABB49 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		00E1D7391FB78F85005ABB49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		00E1D73B1FB78F85005ABB49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		00E1D7411FB7A67B005ABB49 /* PhotoIdentificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoIdentificationViewController.swift; sourceTree = "<group>"; };
+		00E1D7431FB7A6C6005ABB49 /* FavoritePhotosTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritePhotosTableViewController.swift; sourceTree = "<group>"; };
+		00E1D7451FB7A712005ABB49 /* PhotoDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailsViewController.swift; sourceTree = "<group>"; };
+		64774B61BC97399D61B7A7A6 /* Pods-whatsthis.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-whatsthis.debug.xcconfig"; path = "Pods/Target Support Files/Pods-whatsthis/Pods-whatsthis.debug.xcconfig"; sourceTree = "<group>"; };
+		99B58F21EE7C86C3DABB9C7D /* Pods_whatsthis.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_whatsthis.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DCC3F5A8021C39885DD458F0 /* Pods-whatsthis.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-whatsthis.release.xcconfig"; path = "Pods/Target Support Files/Pods-whatsthis/Pods-whatsthis.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +51,47 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C06D3F2FBA3D9C87AEC6A985 /* Pods_whatsthis.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		00A8F0CE1FD5D9D100893E90 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				00A8F0CF1FD5DA4900893E90 /* GoogleVisionAPIManager.swift */,
+				00A8F0D91FD5E6A100893E90 /* WikipediaAPIManager.swift */,
+				00A8F0DB1FD5E6AF00893E90 /* PersistanceManager.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		00A8F0D11FD5DC1900893E90 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				00A8F0D21FD5DC4C00893E90 /* UIImage+Utils.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		00A8F0D41FD5E63600893E90 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				00A8F0D51FD5E64F00893E90 /* GoogleVisionResult.swift */,
+				00A8F0D71FD5E66200893E90 /* WikipediaResult.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		00E1D7231FB78F85005ABB49 = {
 			isa = PBXGroup;
 			children = (
 				00E1D72E1FB78F85005ABB49 /* whatsthis */,
 				00E1D72D1FB78F85005ABB49 /* Products */,
+				8EC5B91E796A0027E70CD8EC /* Pods */,
+				C609F2F03581DE773500E182 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +106,45 @@
 		00E1D72E1FB78F85005ABB49 /* whatsthis */ = {
 			isa = PBXGroup;
 			children = (
+				00A8F0D41FD5E63600893E90 /* Models */,
+				00A8F0D11FD5DC1900893E90 /* Extensions */,
+				00A8F0CE1FD5D9D100893E90 /* Utils */,
+				00E1D7471FB7A88B005ABB49 /* Views */,
 				00E1D72F1FB78F85005ABB49 /* AppDelegate.swift */,
-				00E1D7311FB78F85005ABB49 /* ViewController.swift */,
 				00E1D7331FB78F85005ABB49 /* Main.storyboard */,
 				00E1D7361FB78F85005ABB49 /* Assets.xcassets */,
 				00E1D7381FB78F85005ABB49 /* LaunchScreen.storyboard */,
 				00E1D73B1FB78F85005ABB49 /* Info.plist */,
 			);
 			path = whatsthis;
+			sourceTree = "<group>";
+		};
+		00E1D7471FB7A88B005ABB49 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				00E1D7311FB78F85005ABB49 /* MenuViewController.swift */,
+				00E1D7411FB7A67B005ABB49 /* PhotoIdentificationViewController.swift */,
+				00E1D7431FB7A6C6005ABB49 /* FavoritePhotosTableViewController.swift */,
+				00E1D7451FB7A712005ABB49 /* PhotoDetailsViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		8EC5B91E796A0027E70CD8EC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				64774B61BC97399D61B7A7A6 /* Pods-whatsthis.debug.xcconfig */,
+				DCC3F5A8021C39885DD458F0 /* Pods-whatsthis.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		C609F2F03581DE773500E182 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				99B58F21EE7C86C3DABB9C7D /* Pods_whatsthis.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +154,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00E1D73E1FB78F85005ABB49 /* Build configuration list for PBXNativeTarget "whatsthis" */;
 			buildPhases = (
+				F6B349EBBC634277B33792C1 /* [CP] Check Pods Manifest.lock */,
 				00E1D7281FB78F85005ABB49 /* Sources */,
 				00E1D7291FB78F85005ABB49 /* Frameworks */,
 				00E1D72A1FB78F85005ABB49 /* Resources */,
+				74441978FB2095CBEE461071 /* [CP] Embed Pods Frameworks */,
+				9F58226D267E8BEC61C8E3ED /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -131,13 +217,76 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		74441978FB2095CBEE461071 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-whatsthis/Pods-whatsthis-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-whatsthis/Pods-whatsthis-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9F58226D267E8BEC61C8E3ED /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-whatsthis/Pods-whatsthis-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F6B349EBBC634277B33792C1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-whatsthis-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		00E1D7281FB78F85005ABB49 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00E1D7321FB78F85005ABB49 /* ViewController.swift in Sources */,
+				00A8F0DC1FD5E6AF00893E90 /* PersistanceManager.swift in Sources */,
+				00E1D7461FB7A712005ABB49 /* PhotoDetailsViewController.swift in Sources */,
+				00E1D7321FB78F85005ABB49 /* MenuViewController.swift in Sources */,
+				00A8F0D81FD5E66200893E90 /* WikipediaResult.swift in Sources */,
+				00E1D7421FB7A67B005ABB49 /* PhotoIdentificationViewController.swift in Sources */,
+				00E1D7441FB7A6C6005ABB49 /* FavoritePhotosTableViewController.swift in Sources */,
+				00A8F0D31FD5DC4C00893E90 /* UIImage+Utils.swift in Sources */,
 				00E1D7301FB78F85005ABB49 /* AppDelegate.swift in Sources */,
+				00A8F0D01FD5DA4900893E90 /* GoogleVisionAPIManager.swift in Sources */,
+				00A8F0DA1FD5E6A100893E90 /* WikipediaAPIManager.swift in Sources */,
+				00A8F0D61FD5E64F00893E90 /* GoogleVisionResult.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,6 +421,7 @@
 		};
 		00E1D73F1FB78F85005ABB49 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 64774B61BC97399D61B7A7A6 /* Pods-whatsthis.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -286,6 +436,7 @@
 		};
 		00E1D7401FB78F85005ABB49 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DCC3F5A8021C39885DD458F0 /* Pods-whatsthis.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

@@ -50,7 +50,24 @@ extension MenuViewController: UIImagePickerControllerDelegate, UINavigationContr
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         weak var weakSelf = self
         picker.dismiss(animated: true) {
-            weakSelf?.navigationController?.pushViewController(<#T##viewController: UIViewController##UIViewController#>, animated: <#T##Bool#>)
+            var vc : UIViewController = (weakSelf?.storyboard?.instantiateViewController(withIdentifier: "photoIDVC"))!
+            var photoIDVC : PhotoIdentificationViewController = vc as! PhotoIdentificationViewController
+            
+            var originalImage : UIImage?
+            
+            originalImage = info[UIImagePickerControllerEditedImage] as? UIImage
+            
+            if(originalImage == nil) {
+                originalImage = info[UIImagePickerControllerOriginalImage] as? UIImage
+            }
+            if(originalImage == nil) {
+                originalImage = info[UIImagePickerControllerCropRect] as? UIImage;
+            }
+            
+            photoIDVC.image = originalImage
+            
+            weakSelf?.navigationController?.pushViewController(photoIDVC, animated: true)
+            
         }
     }
 }

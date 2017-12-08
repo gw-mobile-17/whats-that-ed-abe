@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PhotoDetailsViewController: UIViewController {
+class PhotoDetailsViewController: UIViewController{
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +21,6 @@ class PhotoDetailsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
     /*
     // MARK: - Navigation
 
@@ -33,3 +32,4 @@ class PhotoDetailsViewController: UIViewController {
     */
 
 }
+

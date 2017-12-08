@@ -7,15 +7,32 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 class PhotoIdentificationViewController: UIViewController {
-
+    
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var tableView: UITableView!
+    
+    var image : UIImage?
+    var data : [LabelAnnotations] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        if(image != nil){
+            let googleVisionAPIManager = GoogleVisionAPIManager()
+            googleVisionAPIManager.delegate = self
+            googleVisionAPIManager.getLabelsForImage(image : image!)
+        }
         // Do any additional setup after loading the view.
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        imageView.image = image
+        MBProgressHUD.showAdded(to: self.tableView, animated: true)
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -32,4 +49,32 @@ class PhotoIdentificationViewController: UIViewController {
     }
     */
 
+}
+
+
+extension PhotoIdentificationViewController : UITableViewDataSource, UITableViewDelegate, GoogleVisionDelegate {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return data.count
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell : UITableViewCell = UITableViewCell()
+        cell.textLabel?.text = data[indexPath.row].description
+        return cell
+    }
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+  
+    func GoogleVisionRequestFailed(error: Error?) {
+        //TODO : Handle Failed Request Scenario
+    }
+    func GoogleVisionRequestCompleted(result: GoogleVisionResult) {
+        data = result.responses[0].labelAnnotations
+        weak var weakSelf = self
+        DispatchQueue.main.async {
+            weakSelf?.tableView.reloadData()
+            MBProgressHUD.hide(for: (weakSelf?.tableView)!, animated: true)
+        }
+    }
 }

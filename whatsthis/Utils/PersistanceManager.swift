@@ -7,3 +7,9 @@
 //
 
 import Foundation
+class PersistanceManager {
+    static let sharedInstance = PersistanceManager()
+    
+    let favoriteImagesKey = "images"
+    
+}

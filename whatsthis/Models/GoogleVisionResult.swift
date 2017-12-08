@@ -7,3 +7,22 @@
 //
 
 import Foundation
+
+struct GoogleVisionResult: Codable {
+    
+    let responses: [Response]
+    
+}
+struct Response: Codable {
+    
+    let labelAnnotations: [LabelAnnotations]
+    
+}
+
+struct LabelAnnotations: Codable {
+    
+    let mid: String
+    let description: String
+    let score: Double
+    
+}
