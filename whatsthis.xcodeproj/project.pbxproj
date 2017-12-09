@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		006E9CD81FDB34640071AF61 /* PhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006E9CD71FDB34640071AF61 /* PhotoModel.swift */; };
+		006E9CDC1FDB57680071AF61 /* TwitterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006E9CDB1FDB57680071AF61 /* TwitterTableViewController.swift */; };
+		006E9CDE1FDB76530071AF61 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006E9CDD1FDB76530071AF61 /* LocationManager.swift */; };
+		006E9CE01FDB81B50071AF61 /* FavoritesMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006E9CDF1FDB81B50071AF61 /* FavoritesMapViewController.swift */; };
 		00A8F0D01FD5DA4900893E90 /* GoogleVisionAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A8F0CF1FD5DA4900893E90 /* GoogleVisionAPIManager.swift */; };
 		00A8F0D31FD5DC4C00893E90 /* UIImage+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A8F0D21FD5DC4C00893E90 /* UIImage+Utils.swift */; };
 		00A8F0D61FD5E64F00893E90 /* GoogleVisionResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A8F0D51FD5E64F00893E90 /* GoogleVisionResult.swift */; };
@@ -25,6 +29,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		006E9CD71FDB34640071AF61 /* PhotoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoModel.swift; sourceTree = "<group>"; };
+		006E9CDB1FDB57680071AF61 /* TwitterTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterTableViewController.swift; sourceTree = "<group>"; };
+		006E9CDD1FDB76530071AF61 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		006E9CDF1FDB81B50071AF61 /* FavoritesMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesMapViewController.swift; sourceTree = "<group>"; };
 		00A8F0CF1FD5DA4900893E90 /* GoogleVisionAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleVisionAPIManager.swift; sourceTree = "<group>"; };
 		00A8F0D21FD5DC4C00893E90 /* UIImage+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Utils.swift"; sourceTree = "<group>"; };
 		00A8F0D51FD5E64F00893E90 /* GoogleVisionResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleVisionResult.swift; sourceTree = "<group>"; };
@@ -64,6 +72,7 @@
 				00A8F0CF1FD5DA4900893E90 /* GoogleVisionAPIManager.swift */,
 				00A8F0D91FD5E6A100893E90 /* WikipediaAPIManager.swift */,
 				00A8F0DB1FD5E6AF00893E90 /* PersistanceManager.swift */,
+				006E9CDD1FDB76530071AF61 /* LocationManager.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -81,6 +90,7 @@
 			children = (
 				00A8F0D51FD5E64F00893E90 /* GoogleVisionResult.swift */,
 				00A8F0D71FD5E66200893E90 /* WikipediaResult.swift */,
+				006E9CD71FDB34640071AF61 /* PhotoModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -126,6 +136,8 @@
 				00E1D7411FB7A67B005ABB49 /* PhotoIdentificationViewController.swift */,
 				00E1D7431FB7A6C6005ABB49 /* FavoritePhotosTableViewController.swift */,
 				00E1D7451FB7A712005ABB49 /* PhotoDetailsViewController.swift */,
+				006E9CDB1FDB57680071AF61 /* TwitterTableViewController.swift */,
+				006E9CDF1FDB81B50071AF61 /* FavoritesMapViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -242,9 +254,13 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-whatsthis/Pods-whatsthis-resources.sh",
+				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework/TwitterKitResources.bundle",
+				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework/TwitterShareExtensionUIResources.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -278,14 +294,18 @@
 			files = (
 				00A8F0DC1FD5E6AF00893E90 /* PersistanceManager.swift in Sources */,
 				00E1D7461FB7A712005ABB49 /* PhotoDetailsViewController.swift in Sources */,
+				006E9CE01FDB81B50071AF61 /* FavoritesMapViewController.swift in Sources */,
 				00E1D7321FB78F85005ABB49 /* MenuViewController.swift in Sources */,
 				00A8F0D81FD5E66200893E90 /* WikipediaResult.swift in Sources */,
 				00E1D7421FB7A67B005ABB49 /* PhotoIdentificationViewController.swift in Sources */,
 				00E1D7441FB7A6C6005ABB49 /* FavoritePhotosTableViewController.swift in Sources */,
+				006E9CD81FDB34640071AF61 /* PhotoModel.swift in Sources */,
 				00A8F0D31FD5DC4C00893E90 /* UIImage+Utils.swift in Sources */,
 				00E1D7301FB78F85005ABB49 /* AppDelegate.swift in Sources */,
 				00A8F0D01FD5DA4900893E90 /* GoogleVisionAPIManager.swift in Sources */,
+				006E9CDE1FDB76530071AF61 /* LocationManager.swift in Sources */,
 				00A8F0DA1FD5E6A100893E90 /* WikipediaAPIManager.swift in Sources */,
+				006E9CDC1FDB57680071AF61 /* TwitterTableViewController.swift in Sources */,
 				00A8F0D61FD5E64F00893E90 /* GoogleVisionResult.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

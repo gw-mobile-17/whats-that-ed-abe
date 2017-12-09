@@ -55,7 +55,7 @@ class GoogleVisionAPIManager {
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
-            NSLog("Data: \(data)\n Response: \(response)\nError: \(error)")
+
             guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
                 self.delegate?.GoogleVisionRequestFailed(error: error!)
                 return

@@ -16,6 +16,7 @@ class PhotoIdentificationViewController: UIViewController {
     
     var image : UIImage?
     var data : [LabelAnnotations] = []
+    var imageString : String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +24,7 @@ class PhotoIdentificationViewController: UIViewController {
         if(image != nil){
             let googleVisionAPIManager = GoogleVisionAPIManager()
             googleVisionAPIManager.delegate = self
-            googleVisionAPIManager.getLabelsForImage(image : image!)
+            imageString = googleVisionAPIManager.getLabelsForImage(image : image!)
         }
         // Do any additional setup after loading the view.
     }
@@ -32,6 +33,7 @@ class PhotoIdentificationViewController: UIViewController {
         super.viewWillAppear(animated)
         imageView.image = image
         MBProgressHUD.showAdded(to: self.tableView, animated: true)
+        self.tableView.reloadData()
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -59,7 +61,7 @@ extension PhotoIdentificationViewController : UITableViewDataSource, UITableView
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell : UITableViewCell = UITableViewCell()
-        cell.textLabel?.text = data[indexPath.row].description
+        cell.textLabel?.text = data[indexPath.row].description.capitalized
         return cell
     }
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -69,8 +71,9 @@ extension PhotoIdentificationViewController : UITableViewDataSource, UITableView
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc : UIViewController = (self.storyboard?.instantiateViewController(withIdentifier: "photoDetailVC"))!
         let photoDetailVC : PhotoDetailsViewController = vc as! PhotoDetailsViewController
-        photoDetailVC.data = data[indexPath.row]
-        photoDetailVC.image = image
+        photoDetailVC.data = self.data[indexPath.row]
+        photoDetailVC.image = self.image
+        photoDetailVC.imageString = self.imageString
         self.navigationController?.pushViewController(photoDetailVC, animated: true)
     }
     
