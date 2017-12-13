@@ -32,7 +32,9 @@ class PhotoIdentificationViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         imageView.image = image
-        MBProgressHUD.showAdded(to: self.tableView, animated: true)
+        if(data.count == 0){
+            MBProgressHUD.showAdded(to: self.tableView, animated: true)
+        }
         self.tableView.reloadData()
     }
     override func didReceiveMemoryWarning() {

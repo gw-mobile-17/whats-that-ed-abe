@@ -24,25 +24,18 @@ class MenuViewController: UIViewController {
         super.viewDidAppear(animated)
         
     }
-    @IBAction func btnGalleryClicked(_ sender: Any) {
+    @IBAction func galleryBtnAction(_ sender: Any) {
         let imagePicker: UIImagePickerController = UIImagePickerController()
         imagePicker.delegate = self as UIImagePickerControllerDelegate & UINavigationControllerDelegate
         imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary
         self.present(imagePicker, animated: true, completion: nil)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        switch segue.identifier {
-        case "imagePicker"?:
-            NSLog(segue.destination.description)
-            let pickerController: UIImagePickerController = segue.destination as! UIImagePickerController
-            pickerController.delegate = self as UIImagePickerControllerDelegate & UINavigationControllerDelegate
-            pickerController.sourceType = UIImagePickerControllerSourceType.photoLibrary
-            break
-            
-        default:
-            break
-        }
+    @IBAction func cameraBtnAction(_ sender: Any) {
+        let imagePicker: UIImagePickerController = UIImagePickerController()
+        imagePicker.delegate = self as UIImagePickerControllerDelegate & UINavigationControllerDelegate
+        imagePicker.sourceType = UIImagePickerControllerSourceType.camera
+        self.present(imagePicker, animated: true, completion: nil)
     }
 }
 
