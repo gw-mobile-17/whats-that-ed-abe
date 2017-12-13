@@ -15,10 +15,16 @@ let GOOGLE_VISION_API = "https://vision.googleapis.com/v1/images:annotate?key=\(
 
 protocol GoogleVisionDelegate {
     func GoogleVisionRequestCompleted(result: GoogleVisionResult)
-    func GoogleVisionRequestFailed(error: Error?)
+    func GoogleVisionRequestFailed(error: GoogleVisionAPIManager.FailureReason)
 }
+
 class GoogleVisionAPIManager {
     
+    enum FailureReason: String {
+        case networkRequestFailed = "Your request failed, please try again."
+        case noData = "No Google Vision data received"
+        case badJSONResponse = "Bad JSON response"
+    }
     var delegate: GoogleVisionDelegate?
     
     func getLabelsForImage(image : UIImage) -> String {
@@ -57,13 +63,13 @@ class GoogleVisionAPIManager {
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
 
             guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-                self.delegate?.GoogleVisionRequestFailed(error: error!)
+                self.delegate?.GoogleVisionRequestFailed(error: .networkRequestFailed)
                 return
             }
             
             //ensure data is non-nil
             guard let data = data else {
-                self.delegate?.GoogleVisionRequestFailed(error: nil)
+                self.delegate?.GoogleVisionRequestFailed(error: .noData)
                 return
             }
             
@@ -71,7 +77,7 @@ class GoogleVisionAPIManager {
             let decodedGoogleVisionResult = try? decoder.decode(GoogleVisionResult.self, from: data)
             
             guard let googleVisionResult = decodedGoogleVisionResult else {
-                self.delegate?.GoogleVisionRequestFailed(error: nil)
+                self.delegate?.GoogleVisionRequestFailed(error: .badJSONResponse)
                 return
             }
             

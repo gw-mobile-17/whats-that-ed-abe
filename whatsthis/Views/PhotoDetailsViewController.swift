@@ -99,9 +99,14 @@ class PhotoDetailsViewController: UIViewController{
 }
 extension PhotoDetailsViewController: WikipediaDelegate, LocationManagerDelegate {
     
-    func WikipediaRequestFailed(error: Error?) {
-        
-    }
+    func WikipediaRequestFailed(error: WikipediaAPIManager.FailureReason) {
+        weak var weakSelf = self
+        let alert = UIAlertController(title: "Request Error", message: error.rawValue, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(okAction)
+        DispatchQueue.main.async {
+            weakSelf?.present(alert, animated: true)
+        }}
     
     func WikipediaRequestCompleted(result: WikipediaResult) {
         weak var weakSelf = self

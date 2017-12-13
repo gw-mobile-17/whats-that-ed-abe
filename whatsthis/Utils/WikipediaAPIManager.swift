@@ -13,9 +13,15 @@ let WIKI_URL : String = "https://en.wikipedia.org/?curid="
 
 protocol WikipediaDelegate {
     func WikipediaRequestCompleted(result: WikipediaResult)
-    func WikipediaRequestFailed(error: Error?)
+    func WikipediaRequestFailed(error: WikipediaAPIManager.FailureReason)
 }
 class WikipediaAPIManager {
+    
+    enum FailureReason: String {
+        case networkRequestFailed = "Your request failed, please try again."
+        case noData = "No Wiki data received"
+        case badJSONResponse = "Bad JSON response"
+    }
     
     var delegate : WikipediaDelegate?
     
@@ -29,19 +35,19 @@ class WikipediaAPIManager {
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             
             guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-                self.delegate?.WikipediaRequestFailed(error: error!)
+                self.delegate?.WikipediaRequestFailed(error: .networkRequestFailed)
                 return
             }
             //ensure data is non-nil
             guard let data = data else {
-                self.delegate?.WikipediaRequestFailed(error: nil)
+                self.delegate?.WikipediaRequestFailed(error: .noData)
                 return
             }
             let decoder = JSONDecoder()
             let decodedWikipediaResult = try? decoder.decode(WikipediaResult.self, from: data)
             
             guard let wikipediaResult = decodedWikipediaResult else {
-                self.delegate?.WikipediaRequestFailed(error: nil)
+                self.delegate?.WikipediaRequestFailed(error: .badJSONResponse)
                 return
             }
             

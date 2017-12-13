@@ -79,8 +79,16 @@ extension PhotoIdentificationViewController : UITableViewDataSource, UITableView
         self.navigationController?.pushViewController(photoDetailVC, animated: true)
     }
     
-    func GoogleVisionRequestFailed(error: Error?) {
+    func GoogleVisionRequestFailed(error: GoogleVisionAPIManager.FailureReason) {
         //TODO : Handle Failed Request Scenario
+        weak var weakSelf = self
+        let alert = UIAlertController(title: "Request Error", message: error.rawValue, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(okAction)
+        DispatchQueue.main.async {
+            weakSelf?.present(alert, animated: true)
+            MBProgressHUD.hide(for: (weakSelf?.tableView)!, animated: true)
+        }
     }
     func GoogleVisionRequestCompleted(result: GoogleVisionResult) {
         data = result.responses[0].labelAnnotations
