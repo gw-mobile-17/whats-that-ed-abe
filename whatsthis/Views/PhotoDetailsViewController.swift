@@ -19,7 +19,8 @@ class PhotoDetailsViewController: UIViewController{
     var wiki : WikipediaResult?
     var lat : Double = 200
     var lon : Double = 200
-    
+    let wikiManager = WikipediaAPIManager()
+    var dataLoaded = false
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -34,16 +35,27 @@ class PhotoDetailsViewController: UIViewController{
         super.viewDidLoad()
         LocationManager.sharedInstance.delegate = self
         LocationManager.sharedInstance.findLocation()
-        // Do any additional setup after loading the view.
+
+        wikiManager.delegate = self
+        if(!self.dataLoaded){
+            self.setupVCForData()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        imageView.image = image
-        titleLabel.text = data?.description.capitalized
-        let wikiManager = WikipediaAPIManager()
-        wikiManager.delegate = self
-        
+        if(!self.dataLoaded){
+            self.setupVCForData()
+        }
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    //MARK: Setup View for data
+    func setupVCForData(){
         // Sets up photo details
         if(photo != nil){
             // Setup using PhotoModel i.e. already favorited
@@ -51,16 +63,15 @@ class PhotoDetailsViewController: UIViewController{
             titleLabel.text = photo?.text.capitalized
             imageView.image = UIImage().imageFromBase64String(base64String: (photo?.imageString)!)
             wikiManager.getWikiForString(searchString: (photo?.text)!)
-        }else{
+            self.dataLoaded = true
+        }else if(data != nil){
             // Setup using PhotoModel i.e. already favorited
+            imageView.image = image
+            titleLabel.text = data?.description.capitalized
             self.favBtn.isSelected = false
             wikiManager.getWikiForString(searchString: (data?.description)!)
+            self.dataLoaded = true
         }
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     // MARK: Button Actions
@@ -90,11 +101,12 @@ class PhotoDetailsViewController: UIViewController{
         if(self.favBtn.isSelected){
             // Removes photo as favorite
             PersistanceManager().removePhoto(photo!)
-            self.photo = nil
         }else{
             // Favorites photo with id as current time
             let id = Date().timeIntervalSince1970
-            self.photo = PhotoModel(text: (self.data?.description)!, imageString: self.imageString!, id: id, lat: self.lat, lon: self.lon)
+            if (photo == nil) {
+                photo = PhotoModel(text: (self.data?.description)!, imageString: self.imageString!, id: id, lat: self.lat, lon: self.lon)
+            }
             PersistanceManager().savePhoto(photo!)
         }
         self.favBtn.isSelected = !self.favBtn.isSelected

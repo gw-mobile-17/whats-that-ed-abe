@@ -47,9 +47,9 @@ class FavoritePhotosTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        cell.imageView?.image = UIImage().imageFromBase64String(base64String: data![indexPath.row].imageString)
-        cell.textLabel?.text = data![indexPath.row].text
+        let cell : FavoriteTableViewCell = tableView.dequeueReusableCell(withIdentifier: "FavCell") as! FavoriteTableViewCell
+        cell.photoImageView?.image = UIImage().imageFromBase64String(base64String: data![indexPath.row].imageString)
+        cell.tagLabel?.text = data![indexPath.row].text.capitalized
         return cell
     }
  
@@ -59,6 +59,9 @@ class FavoritePhotosTableViewController: UITableViewController {
         let photoDetailVC : PhotoDetailsViewController = vc as! PhotoDetailsViewController
         photoDetailVC.photo = self.data?[indexPath.row]
         self.navigationController?.pushViewController(photoDetailVC, animated: true)
+    }
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
     }
     
     // MARK: Button Action

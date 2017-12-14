@@ -17,6 +17,7 @@
 		00A8F0D81FD5E66200893E90 /* WikipediaResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A8F0D71FD5E66200893E90 /* WikipediaResult.swift */; };
 		00A8F0DA1FD5E6A100893E90 /* WikipediaAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A8F0D91FD5E6A100893E90 /* WikipediaAPIManager.swift */; };
 		00A8F0DC1FD5E6AF00893E90 /* PersistanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A8F0DB1FD5E6AF00893E90 /* PersistanceManager.swift */; };
+		00D00C421FE2429F009406DB /* FavoriteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D00C411FE2429F009406DB /* FavoriteTableViewCell.swift */; };
 		00E1D7301FB78F85005ABB49 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E1D72F1FB78F85005ABB49 /* AppDelegate.swift */; };
 		00E1D7321FB78F85005ABB49 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E1D7311FB78F85005ABB49 /* MenuViewController.swift */; };
 		00E1D7351FB78F85005ABB49 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00E1D7331FB78F85005ABB49 /* Main.storyboard */; };
@@ -39,6 +40,7 @@
 		00A8F0D71FD5E66200893E90 /* WikipediaResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikipediaResult.swift; sourceTree = "<group>"; };
 		00A8F0D91FD5E6A100893E90 /* WikipediaAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikipediaAPIManager.swift; sourceTree = "<group>"; };
 		00A8F0DB1FD5E6AF00893E90 /* PersistanceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistanceManager.swift; sourceTree = "<group>"; };
+		00D00C411FE2429F009406DB /* FavoriteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteTableViewCell.swift; sourceTree = "<group>"; };
 		00E1D72C1FB78F85005ABB49 /* whatsthis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = whatsthis.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E1D72F1FB78F85005ABB49 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		00E1D7311FB78F85005ABB49 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 				00E1D7451FB7A712005ABB49 /* PhotoDetailsViewController.swift */,
 				006E9CDB1FDB57680071AF61 /* TwitterTableViewController.swift */,
 				006E9CDF1FDB81B50071AF61 /* FavoritesMapViewController.swift */,
+				00D00C411FE2429F009406DB /* FavoriteTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -301,6 +304,7 @@
 				00E1D7441FB7A6C6005ABB49 /* FavoritePhotosTableViewController.swift in Sources */,
 				006E9CD81FDB34640071AF61 /* PhotoModel.swift in Sources */,
 				00A8F0D31FD5DC4C00893E90 /* UIImage+Utils.swift in Sources */,
+				00D00C421FE2429F009406DB /* FavoriteTableViewCell.swift in Sources */,
 				00E1D7301FB78F85005ABB49 /* AppDelegate.swift in Sources */,
 				00A8F0D01FD5DA4900893E90 /* GoogleVisionAPIManager.swift in Sources */,
 				006E9CDE1FDB76530071AF61 /* LocationManager.swift in Sources */,
