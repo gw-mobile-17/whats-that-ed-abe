@@ -17,17 +17,22 @@ class FavoritesMapViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
     let regionRadius: CLLocationDistance = 1000
     
-    
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         for photo in self.photos! {
             let annotation: MKPointAnnotation = MKPointAnnotation()
-            annotation.coordinate.latitude = photo.lat
-            annotation.coordinate.longitude = photo.lon
-            annotation.title = photo.text
-            annotations.append(annotation)
-            mapView.addAnnotation(annotation)
+            
+            //Checks whether photo has lat and lon
+            if(photo.lat != 200 || photo.lon != 200){
+                annotation.coordinate.latitude = photo.lat
+                annotation.coordinate.longitude = photo.lon
+                annotation.title = photo.text
+                annotations.append(annotation)
+                // Creates and adds MKPointAnnotations to the Map
+                mapView.addAnnotation(annotation)
+            }
         }
         mapView.showAnnotations(annotations, animated: true)
     }
@@ -36,8 +41,11 @@ class FavoritesMapViewController: UIViewController {
         super.viewDidAppear(animated)
         checkLocationAuthorizationStatus()
     }
-        
+    
+    // MARK: - Current Location
     let locationManager = CLLocationManager()
+    
+    //Checks location Authorization for showing user location in Map
     func checkLocationAuthorizationStatus() {
         if CLLocationManager.authorizationStatus() == .authorizedAlways {
             mapView.showsUserLocation = true

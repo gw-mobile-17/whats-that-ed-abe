@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+//Extension to UIImage to handle base64Image Conversions
 extension UIImage {
     func base64String () -> String {
         let imageData : Data = UIImageJPEGRepresentation(self, 0.3)!

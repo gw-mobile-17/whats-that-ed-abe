@@ -25,9 +25,11 @@ class WikipediaAPIManager {
     
     var delegate : WikipediaDelegate?
     
-    func getWikiURLForString(searchString: String) {
-        let urlComponents = URLComponents(string: "\(WIKI_API)\(searchString)")!
+    // Gets Wiki Extract and Id for search String
+    func getWikiForString(searchString: String) {
         
+        //HTTP Request setup
+        let urlComponents = URLComponents(string: "\(WIKI_API)\(searchString)")!
         let url = urlComponents.url!
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
@@ -43,6 +45,7 @@ class WikipediaAPIManager {
                 self.delegate?.WikipediaRequestFailed(error: .noData)
                 return
             }
+            // Gets WikipediaResult object from response
             let decoder = JSONDecoder()
             let decodedWikipediaResult = try? decoder.decode(WikipediaResult.self, from: data)
             

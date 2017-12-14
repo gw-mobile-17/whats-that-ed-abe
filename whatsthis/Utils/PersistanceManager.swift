@@ -12,6 +12,7 @@ class PersistanceManager {
     
     let favoriteImagesKey = "photos"
     
+    // fetches PhotoModel Objects from favorites persisted
     func fetchPhotos() -> [PhotoModel] {
         let userDefaults = UserDefaults.standard
         
@@ -27,6 +28,7 @@ class PersistanceManager {
         }
     }
     
+    // Saves PhotoModel Object to favorites and persisted
     func savePhoto(_ photo: PhotoModel) {
         let userDefaults = UserDefaults.standard
         
@@ -37,10 +39,14 @@ class PersistanceManager {
         
         userDefaults.set(data, forKey: favoriteImagesKey)
     }
+    
+    // Removes PhotoModel Object from favorites persisted
     func removePhoto(_ photo: PhotoModel) {
         let userDefaults = UserDefaults.standard
         
         var photos = fetchPhotos()
+        
+        // filters out photo object using id of photo
         photos = photos.filter{ $0.id != photo.id}
         
         let data = NSKeyedArchiver.archivedData(withRootObject: photos)

@@ -10,6 +10,7 @@ import UIKit
 
 class MenuViewController: UIViewController {
     
+    // MARK: Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -20,11 +21,9 @@ class MenuViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-    }
+    // MARK: - Button Action Methods
     @IBAction func galleryBtnAction(_ sender: Any) {
+        // Opens UIImagePickerController in gallery mode
         let imagePicker: UIImagePickerController = UIImagePickerController()
         imagePicker.delegate = self as UIImagePickerControllerDelegate & UINavigationControllerDelegate
         imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary
@@ -32,6 +31,7 @@ class MenuViewController: UIViewController {
     }
     
     @IBAction func cameraBtnAction(_ sender: Any) {
+        // Opens UIImagePickerController in camera mode
         let imagePicker: UIImagePickerController = UIImagePickerController()
         imagePicker.delegate = self as UIImagePickerControllerDelegate & UINavigationControllerDelegate
         imagePicker.sourceType = UIImagePickerControllerSourceType.camera
@@ -42,6 +42,7 @@ class MenuViewController: UIViewController {
 extension MenuViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         weak var weakSelf = self
+        // Dismisses Picker and launches PhotoIdentificationViewController with image
         picker.dismiss(animated: true) {
             let vc : UIViewController = (weakSelf?.storyboard?.instantiateViewController(withIdentifier: "photoIDVC"))!
             let photoIDVC : PhotoIdentificationViewController = vc as! PhotoIdentificationViewController

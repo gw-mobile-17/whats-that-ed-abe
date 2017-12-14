@@ -8,6 +8,8 @@
 
 import Foundation
 
+//generated using http://danieltmbr.github.io/JsonCodeGenerator/
+
 struct WikipediaResult: Codable {
     
     let batchcomplete: String

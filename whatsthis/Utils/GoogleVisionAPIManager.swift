@@ -34,12 +34,13 @@ class GoogleVisionAPIManager {
     }
     
     func getLabelsForImageString(imageString: String) {
+        //HTTP Request setup
         let urlComponents = URLComponents(string: GOOGLE_VISION_API)!
-        
         let url = urlComponents.url!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         
+        //JSON Body
         let json = [
             "requests": [
                 [
@@ -73,6 +74,7 @@ class GoogleVisionAPIManager {
                 return
             }
             
+            // Gets GoogleVisionResult object from response
             let decoder = JSONDecoder()
             let decodedGoogleVisionResult = try? decoder.decode(GoogleVisionResult.self, from: data)
             

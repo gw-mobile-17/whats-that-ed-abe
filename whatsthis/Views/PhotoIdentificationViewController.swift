@@ -11,6 +11,7 @@ import MBProgressHUD
 
 class PhotoIdentificationViewController: UIViewController {
     
+    // MARK: - Properties
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var tableView: UITableView!
     
@@ -18,15 +19,17 @@ class PhotoIdentificationViewController: UIViewController {
     var data : [LabelAnnotations] = []
     var imageString : String?
     
+    // MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // GoogleVision API requested when image is present
         if(image != nil){
             let googleVisionAPIManager = GoogleVisionAPIManager()
             googleVisionAPIManager.delegate = self
+            //image string returned from GoogleVision Request is the base64 encode image string
             imageString = googleVisionAPIManager.getLabelsForImage(image : image!)
         }
-        // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -41,23 +44,11 @@ class PhotoIdentificationViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
 
 extension PhotoIdentificationViewController : UITableViewDataSource, UITableViewDelegate, GoogleVisionDelegate {
-    
+    // MARK: - TableViewDataSource and TableViewDelegate Methods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return data.count
     }
@@ -79,8 +70,9 @@ extension PhotoIdentificationViewController : UITableViewDataSource, UITableView
         self.navigationController?.pushViewController(photoDetailVC, animated: true)
     }
     
+    //MARK: - GoogleVisionRequestDelegate Methods
     func GoogleVisionRequestFailed(error: GoogleVisionAPIManager.FailureReason) {
-        //TODO : Handle Failed Request Scenario
+        // Throws Alert for request failure
         weak var weakSelf = self
         let alert = UIAlertController(title: "Request Error", message: error.rawValue, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
@@ -91,6 +83,7 @@ extension PhotoIdentificationViewController : UITableViewDataSource, UITableView
         }
     }
     func GoogleVisionRequestCompleted(result: GoogleVisionResult) {
+        // Updates viewcontroller with GoogleVisionRequest labels
         data = result.responses[0].labelAnnotations
         weak var weakSelf = self
         DispatchQueue.main.async {

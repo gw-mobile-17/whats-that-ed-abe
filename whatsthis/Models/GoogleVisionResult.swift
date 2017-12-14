@@ -8,6 +8,8 @@
 
 import Foundation
 
+//generated using http://danieltmbr.github.io/JsonCodeGenerator/
+
 struct GoogleVisionResult: Codable {
     
     let responses: [Response]
